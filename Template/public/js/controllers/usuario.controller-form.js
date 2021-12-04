@@ -3,23 +3,23 @@
 
     angular
         .module("MyApp")
-        .controller("UsuarioAdminFormController", UsuarioAdminFormController);
+        .controller("UsuarioFormController", UsuarioFormController);
 
-        UsuarioAdminFormController.$inject = [
-        "UsuarioAdminService",
+        UsuarioFormController.$inject = [
+        "UsuarioService",
         "$location",
         "$routeParams",
         "$scope",
     ];
 
-    function UsuarioAdminFormController(
-        UsuarioAdminService,
+    function UsuarioFormController(
+        UsuarioService,
         $location,
         $routeParams
     ) {
         var vm = this;
         vm.cadastro = {};
-        vm.titulo = "Novo Usuário Admin";
+        vm.titulo = "Novo Usuário";
         vm.item = null;
         vm.salvar = salvar;
         vm.select = select;
@@ -28,17 +28,17 @@
 
         function activate() {
             if ($routeParams.id) {
-                UsuarioAdminService.findById($routeParams.id).success(function (data) {
+                UsuarioService.findById($routeParams.id).success(function (data) {
                     vm.cadastro = data;
-                    vm.titulo = "Editando Usuário Admin";
+                    vm.titulo = "Editando Usuário";
                 });
             }
         }
 
         function salvar() {
-            UsuarioAdminService.save(vm.cadastro).success(function () {
-                $location.path("/usuarioAdmin");
-                alert("Usuário Admin cadastrado com sucesso!!");
+            UsuarioService.save(vm.cadastro).success(function () {
+                $location.path("/usuario");
+                alert("Usuário cadastrado com sucesso!!");
             }).error(function (erro) {
                 alert(JSON.stringify(erro));
             });

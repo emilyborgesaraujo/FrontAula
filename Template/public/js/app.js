@@ -28,14 +28,77 @@ angular
             .when("/estado/new", {
                 templateUrl: "partials/estado-form.html",
             })
-            .when("/usuarioAdmin", {
-                templateUrl: "partials/usuarioAdmin.html",
+            .when("/usuario", {
+                templateUrl: "partials/usuario.html",
             })
-            .when("/usuarioAdmin/:id", {
-                templateUrl: "partials/usuarioAdmin-form.html",
+            .when("/usuario/:id", {
+                templateUrl: "partials/usuario-form.html",
             })
-            .when("/usuarioAdmin/new", {
-                templateUrl: "partials/usuarioAdmin-form.html",
+            .when("/usuario/new", {
+                templateUrl: "partials/usuario-form.html",
+            })
+            .when("/instituicao", {
+                templateUrl: "partials/instituicao.html",
+            })
+            .when("/instituicao/:id", {
+                templateUrl: "partials/instituicao-form.html",
+            })
+            .when("/instituicao/new", {
+                templateUrl: "partials/instituicao-form.html",
+            })
+            .when("/cargos", {
+                templateUrl: "partials/cargos.html",
+            })
+            .when("/cargos/:id", {
+                templateUrl: "partials/cargos-form.html",
+            })
+            .when("/cargos/new", {
+                templateUrl: "partials/cargos-form.html",
+            })
+            .when("/aulas", {
+                templateUrl: "partials/aulas.html",
+            })
+            .when("/aulas/:id", {
+                templateUrl: "partials/aulas-form.html",
+            })
+            .when("/aulas/new", {
+                templateUrl: "partials/aulas-form.html",
+            })
+            .when("/cursos", {
+                templateUrl: "partials/cursos.html",
+            })
+            .when("/cursos/:id", {
+                templateUrl: "partials/cursos-form.html",
+            })
+            .when("/cursos/new", {
+                templateUrl: "partials/cursos-form.html",
+            })
+            .when("/categorias", {
+                templateUrl: "partials/categorias.html",
+            })
+            .when("/categorias/:id", {
+                templateUrl: "partials/categorias-form.html",
+            })
+            .when("/categorias/new", {
+                templateUrl: "partials/categorias-form.html",
+            })
+            .when("/assuntos", {
+                templateUrl: "partials/assuntos.html",
+            })
+            .when("/assuntos/:id", {
+                templateUrl: "partials/assuntos-form.html",
+            })
+            .when("/assuntos/new", {
+                templateUrl: "partials/assuntos-form.html",
+            })
+            .when("/artigos", {
+                templateUrl: "partials/artigos.html",
+            })
+            .when("/artigos/:id", {
+                templateUrl: "partials/artigos-form.html",
+            })
+            .when("/artigos/new", {
+                templateUrl: "partials/artigos-form.html",
             })
             .otherwise({
                 templateUrl: "partials/404.html",

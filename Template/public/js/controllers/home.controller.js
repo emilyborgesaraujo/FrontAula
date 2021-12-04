@@ -11,7 +11,14 @@
 
         vm.cidadesPage = cidadesPage;
         vm.estadosPage = estadosPage;
-        vm.usuarioAdminPage = usuarioAdminPage;
+        vm.instituicaoPage = instituicaoPage;
+        vm.usuarioPage = usuarioPage;
+        vm.cargosPage = cargosPage;
+        vm.aulasPage = aulasPage;
+        vm.cursosPage = cursosPage;
+        vm.categoriasPage = categoriasPage;
+        vm.assuntosPage = assuntosPage;
+        vm.artigosPage = artigosPage;
 
         activate();
 
@@ -26,8 +33,36 @@
             $location.path("/estado");
         }
 
-        function usuarioAdminPage() {
-            $location.path("/usuarioAdmin");
+        function instituicaoPage() {
+            $location.path("/instituicao");
+        }
+
+        function usuarioPage() {
+            $location.path("/usuario");
+        }
+
+        function cargosPage() {
+            $location.path("/cargos");
+        }
+
+        function aulasPage() {
+            $location.path("/aulas");
+        }
+
+        function cursosPage() {
+            $location.path("/cursos");
+        }
+
+        function categoriasPage() {
+            $location.path("/categorias");
+        }
+
+        function assuntosPage() {
+            $location.path("/assuntos");
+        }
+
+        function artigosPage() {
+            $location.path("/artigos");
         }
     }
 })();

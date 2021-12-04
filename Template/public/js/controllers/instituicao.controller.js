@@ -3,11 +3,11 @@
 
     angular
         .module("MyApp")
-        .controller("UsuarioAdminListController", UsuarioAdminListController);
+        .controller("InstituicaoListController", InstituicaoListController);
 
-        UsuarioAdminListController.$inject = ["UsuarioAdminService"];
+        InstituicaoListController.$inject = ["InstituicaoService"];
 
-    function UsuarioAdminListController(UsuarioAdminService) {
+    function InstituicaoListController(InstituicaoService) {
         var vm = this;
 
         vm.item = null;
@@ -20,13 +20,13 @@
 
         function activate() {
             var query = vm.busca ? { $text: { $search: vm.busca } } : {};
-            UsuarioAdminService.find(query).then(function(result) {
+            InstituicaoService.find(query).then(function(result) {
                 vm.itens = result.data;
             });
         }
 
         function remover(item) {
-            UsuarioAdminService.remove(item.id).success(function() {
+            InstituicaoService.remove(item.id).success(function() {
                 activate();
             });
         }

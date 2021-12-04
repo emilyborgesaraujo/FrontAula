@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template</title>
+    <title>InfoClass</title>
     <link rel="stylesheet" href="/css/vendor/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
     <link href="/css/font-awesome.css" rel="stylesheet">
@@ -35,13 +35,51 @@
     <script src="/js/controllers/estados.controller.js"></script>
     <script src="/js/services/estados.service.js"></script>
 
-    <script src="/js/controllers/usuarioAdmin.controller-form.js"></script>
-    <script src="/js/controllers/usuarioAdmin.controller.js"></script>
-    <script src="/js/services/usuarioAdmin.service.js"></script>
+    <script src="/js/controllers/instituicao.controller-form.js"></script>
+    <script src="/js/controllers/instituicao.controller.js"></script>
+    <script src="/js/services/instituicao.service.js"></script>
+
+    <script src="/js/controllers/usuario.controller-form.js"></script>
+    <script src="/js/controllers/usuario.controller.js"></script>
+    <script src="/js/services/usuario.service.js"></script>
+
+    <script src="/js/controllers/cargos.controller-form.js"></script>
+    <script src="/js/controllers/cargos.controller.js"></script>
+    <script src="/js/services/cargos.service.js"></script>
+
+    <script src="/js/controllers/aulas.controller-form.js"></script>
+    <script src="/js/controllers/aulas.controller.js"></script>
+    <script src="/js/services/aulas.service.js"></script>
+
+    <script src="/js/controllers/cursos.controller-form.js"></script>
+    <script src="/js/controllers/cursos.controller.js"></script>
+    <script src="/js/services/cursos.service.js"></script>
+    <script src="/js/controllers/cursosEmAndamento.controller.js"></script>
+    <script src="/js/services/cursosEmAndamento.service.js"></script>
+
+    <script src="/js/controllers/categorias.controller-form.js"></script>
+    <script src="/js/controllers/categorias.controller.js"></script>
+    <script src="/js/services/categorias.service.js"></script>
+
+    <script src="/js/controllers/assuntos.controller-form.js"></script>
+    <script src="/js/controllers/assuntos.controller.js"></script>
+    <script src="/js/services/assuntos.service.js"></script>
+
+    <script src="/js/controllers/artigos.controller-form.js"></script>
+    <script src="/js/controllers/artigos.controller.js"></script>
+    <script src="/js/services/artigos.service.js"></script>
 
     <script src="/js/controllers/paises.controller.js"></script>
     <script src="/js/services/paises.service.js"></script>
 
+    <script>
+        $('#bsalert').on('close.bs.alert', toggleAlert)
+    
+        function toggleAlert() {
+            $(".alert").toggleClass('in out');
+            return false; // Keep close.bs.alert event from removing from DOM
+        }
+    </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function(b, o, i, l, e, r) {

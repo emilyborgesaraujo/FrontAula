@@ -3,11 +3,11 @@
 
     angular
         .module('MyApp')
-        .factory('UsuarioAdminService', UsuarioAdminService);
+        .factory('AulaService', AulaService);
 
-        UsuarioAdminService.$inject = ['$http', '$window', '$rootScope'];
+        AulaService.$inject = ['$http', '$window', '$rootScope'];
 
-    function UsuarioAdminService($http, $window, $rootScope) {
+    function AulaService($http, $window, $rootScope) {
         var service = {
             find: find,
             findById: findById,
@@ -15,7 +15,7 @@
             remove: remove
         };
 
-        var URL = 'http://localhost:8080/api/usuarios-admin';
+        var URL = 'http://localhost:8080/api/aulas';
 
         return service;
 

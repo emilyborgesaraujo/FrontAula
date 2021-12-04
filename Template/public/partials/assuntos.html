@@ -1,4 +1,6 @@
-<div ng-controller="UsuarioAdminListController as vm">
+<div ng-controller="AssuntosListController as vm">
+    <div id="divPrincipal" style="position: absolute; z-index: 3;">
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -6,12 +8,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h3>Cadastro de Usuário Admin </h3>
+                                <h3>Cadastro de Assuntos </h3>
                             </div>
                             <div class="col-sm-4">
-                                <a class="btn btn-default pull-right btn-lg" href="usuarioAdmin/new">
+                                <a class="btn btn-default pull-right btn-lg" href="assuntos/new">
                                     <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                    <span>Novo Usuário</span>
+                                    <span>Novo Assunto</span>
                                 </a>
                             </div>
                         </div>
@@ -22,25 +24,19 @@
                         <table class="table" style="margin-top: 3em">
                             <thead>
                                 <tr>
-                                    <th>NOME</th>
-                                    <th>CPF</th>
-                                    <th>LOGIN</th>
-                                    <th>SENHA</th>
+                                    <th>DESCRIÇÃO</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in vm.itens">
-                                    <td>{{item.nome}}</td>
-                                    <td>{{item.cpf}}</td>
-                                    <td>{{item.login}}</td>
-                                    <td>{{item.senha}}</td>
+                                    <td>{{item.descricao}}</td>
                                     <td>
-                                        <a type="button" class="btn btn-primary btn-sm" ng-href="{{'/usuarioAdmin/' + item.id}}">
+                                        <a type="button" class="btn btn-info btn-sm" ng-href="{{'/assuntos/' + item.id}}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
 
-                                        <a type="button" class="btn btn-primary btn-sm" confirmed-click="vm.remover(item)" 
-                                        ng-confirm-click="Deseja excluir o usuário?">
+                                        <a type="button" class="btn btn-danger btn-sm" confirmed-click="vm.remover(item)" 
+                                        ng-confirm-click="Deseja excluir o assunto?">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -53,3 +49,11 @@
         </div>
     </div>
 </div>
+<script>
+    $('#bsalert').on('close.bs.alert', toggleAlert)
+ 
+    function toggleAlert() {
+        $(".alert").toggleClass('in out');
+        return false; // Keep close.bs.alert event from removing from DOM
+    }
+</script>

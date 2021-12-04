@@ -1,0 +1,67 @@
+<div ng-controller="AulaListController as vm">
+    <div id="divPrincipal" style="position: absolute; z-index: 3;">
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Cadastro de Aulas </h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-default pull-right btn-lg" href="aulas/new">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    <span>Nova Aula</span>
+                                </a>
+                            </div>
+                        </div>
+                        <form class="search" style="position: absolute; margin-top: -1%;">
+                            <input class="searchTerm" ng-model="vm.busca" placeholder="Pesquisar..." />
+                            <input class="searchButton" text="Buscar" type="submit" ng-click="vm.buscar()" />
+                        </form>
+                        <table class="table" style="margin-top: 3em">
+                            <thead>
+                                <tr>
+                                    <th>DESCRIÇÃO</th>
+                                    <th>RESUMO</th>
+                                    <th>DURAÇÃO</th>
+                                    <th>VIDEO</th>
+                                    <th>CURSO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.itens">
+                                    <td>{{item.descricao}}</td>
+                                    <td>{{item.resumo}}</td>
+                                    <td>{{item.duracao}}</td>
+                                    <td>{{item.video}}</td>
+                                    <td>{{item.curso.descricao}}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-info btn-sm" ng-href="{{'/aulas/' + item.id}}">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+
+                                        <a type="button" class="btn btn-danger btn-sm" confirmed-click="vm.remover(item)" 
+                                        ng-confirm-click="Deseja excluir a aula?">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#bsalert').on('close.bs.alert', toggleAlert)
+ 
+    function toggleAlert() {
+        $(".alert").toggleClass('in out');
+        return false; // Keep close.bs.alert event from removing from DOM
+    }
+</script>

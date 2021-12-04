@@ -1,0 +1,70 @@
+<div ng-controller="ArtigoListController as vm">
+    <div id="divPrincipal" style="position: absolute; z-index: 3;">
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3>Cadastro de Artigos </h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-default pull-right btn-lg" href="artigos/new">
+                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                    <span>Novo Artigo</span>
+                                </a>
+                            </div>
+                        </div>
+                        <form class="search" style="position: absolute; margin-top: -1%;">
+                            <input class="searchTerm" ng-model="vm.busca" placeholder="Pesquisar..." />
+                            <input class="searchButton" text="Buscar" type="submit" ng-click="vm.buscar()" />
+                        </form>
+                        <table class="table" style="margin-top: 3em">
+                            <thead>
+                                <tr>
+                                    <th>DESCRIÇÃO</th>
+                                    <th>DATA DE PUBLICAÇÃO</th>
+                                    <th>RESPONSÁVEL PUBLICAÇÃO</th>
+                                    <th>ARQUIVO</th>
+                                    <th>ASSUNTO</th>
+                                    <th>STATUS</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.itens">
+                                    <td>{{item.descricao}}</td>
+                                    <td>{{item.dataPublicacao}}</td>
+                                    <td>{{item.usuarioResponsavelPubli.nome}}</td>
+                                    <td>{{item.arquivo}}</td>
+                                    <td>{{item.assunto.descricao}}</td>
+                                    <td>{{item.statusArtigo}}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-info btn-sm" ng-href="{{'/artigos/' + item.id}}">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+
+                                        <a type="button" class="btn btn-danger btn-sm" confirmed-click="vm.remover(item)" 
+                                        ng-confirm-click="Deseja excluir o artigo?">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#bsalert').on('close.bs.alert', toggleAlert)
+ 
+    function toggleAlert() {
+        $(".alert").toggleClass('in out');
+        return false; // Keep close.bs.alert event from removing from DOM
+    }
+</script>
