@@ -7,27 +7,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-            <a href="/home" class="navbar-brand">InfoClass</a>
+            <a href="" ng-click="navigate()" class="navbar-brand" style="padding-top: 30px; font-size: 40px;">InfoClass</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li ng-class="{ active: isActive('/home')}"><a href="/home">Home</a></li>
-                 <li class="dropdown">
+
+            <ul class="nav navbar-nav" ng-if="isAuthenticated()">
+                <li ng-class="{ active: isActive('/home')}" ng-if="isAuthenticated()"><a href="/home">Home</a></li>
+                 <li class="dropdown" ng-if="isAuthenticated()">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-                        aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
+                        aria-haspopup="true" aria-expanded="false" ng-if="isAuthenticated()">Cadastros <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <!---
-                        <li style="height:40px;"><a style="height:40px; font-size: 16px;" 
-                            href="/cidade"><i class="fa fa-map" aria-hidden="true"></i>  Cidades</a></li>
-                        <li style="height:40px;"><a style="height:40px; font-size: 16px;" 
-                            href="/estado"><i class="fa fa-map" aria-hidden="true"></i>  Estados</a></li>
-                        -->
-                        <li style="height:auto;"><a style="height:auto; font-size: 16px;" 
+                        <li style="height:auto;" ng-if="isAdministrador()"><a style="height:auto; font-size: 16px;" 
                             href="/instituicao"><i class="fa fa-bank" aria-hidden="true"></i>  Instituição</a></li>
-                        <li style="height:auto;"><a style="height:auto; font-size: 16px;" 
+                        <li style="height:auto;" ng-if="isAdministrador()"><a style="height:auto; font-size: 16px;" 
                             href="/usuario"><i class="fa fa-user-o" aria-hidden="true"></i>  Usuário</a></li>
                         <li style="height:auto;"><a style="height:auto; font-size: 16px;" 
-                            href="/cargos"><i class="fa fa-suitcase" aria-hidden="true"></i>  Cargos</a></li>
+                            href="/cargos" ng-if="isAdministrador()"><i class="fa fa-suitcase" aria-hidden="true"></i>  Cargos</a></li>
                         <li style="height:auto;"><a style="height:auto; font-size: 16px;" 
                             href="/assuntos"><i class="fa fa-commenting-o" aria-hidden="true"></i>  Assuntos</a></li>
                         <li style="height:auto;"><a style="height:auto; font-size: 16px;" 
@@ -40,6 +35,13 @@
                             href="/aulas"><i class="fa fa-address-book" aria-hidden="true"></i>  Aulas</a></li>
                     </ul>
                 </li>
+            </ul>
+
+            <ul ng-if="isAuthenticated()" class="nav navbar-nav navbar-right">
+                <li><a href="#" ng-click="logout()" }>Logout</a></li>
+            </ul>
+            <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
+                <li ng-class="{ active: isActive('/login')}"><a href="/login">Log in</a></li>
             </ul>
         </div>
     </div>

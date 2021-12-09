@@ -19,11 +19,16 @@
         vm.categoriasPage = categoriasPage;
         vm.assuntosPage = assuntosPage;
         vm.artigosPage = artigosPage;
+        vm.isAdministrador = isAdministrador;
 
         activate();
 
         function activate() {
         }
+
+        function isAdministrador (){
+            return $window.localStorage.administrador;
+        };
 
         function cidadesPage() {
             $location.path("/cidade");
