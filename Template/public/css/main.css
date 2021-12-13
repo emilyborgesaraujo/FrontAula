@@ -627,3 +627,12 @@ footer {
 .classifyOnClick img {
     width: 100%;
 }
+
+.navbar-nav > li > a {
+    padding-top:25px !important; 
+    padding-bottom:5px !important; 
+    min-height: 75px !important; 
+    font-size: 30px;
+} 
+
+.navbar {min-height:75px !important}
